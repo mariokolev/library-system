@@ -41,5 +41,4 @@ public class BookController {
     public List<BookResponseDto> findAll() {
         return bookService.findAll();
     }
-
 }

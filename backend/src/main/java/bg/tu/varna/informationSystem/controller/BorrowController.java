@@ -4,6 +4,7 @@ import bg.tu.varna.informationSystem.dto.borrow.BorrowRequestDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowResponseDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowReturnRequestDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowReturnResponseDto;
+import bg.tu.varna.informationSystem.entity.Borrow;
 import bg.tu.varna.informationSystem.service.BorrowService;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +34,15 @@ public class BorrowController {
     @GetMapping
     public List<BorrowResponseDto> findAll() {
         return borrowService.findAll();
+    }
+
+    @GetMapping("reader/{id}")
+    public List<BorrowResponseDto> findAllByReader(@PathVariable Long id) {
+        return borrowService.findAllByReader(id);
+    }
+
+    @GetMapping("reader/{id}/not-returned")
+    public List<BorrowResponseDto> findAllNotReturnedByReader(@PathVariable Long id) {
+        return borrowService.findAllNotReturnedByReader(id);
     }
 }
