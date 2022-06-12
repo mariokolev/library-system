@@ -1,6 +1,5 @@
 package bg.tu.varna.informationSystem.repository;
 
-import bg.tu.varna.informationSystem.dto.borrow.BorrowResponseDto;
 import bg.tu.varna.informationSystem.entity.Borrow;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

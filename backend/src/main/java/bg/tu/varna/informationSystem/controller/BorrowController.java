@@ -4,7 +4,6 @@ import bg.tu.varna.informationSystem.dto.borrow.BorrowRequestDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowResponseDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowReturnRequestDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowReturnResponseDto;
-import bg.tu.varna.informationSystem.entity.Borrow;
 import bg.tu.varna.informationSystem.service.BorrowService;
 import org.springframework.web.bind.annotation.*;
 

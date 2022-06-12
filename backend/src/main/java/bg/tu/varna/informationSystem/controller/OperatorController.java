@@ -12,22 +12,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/readers")
-public class ReaderController {
+@RequestMapping("/api/v1/operators")
+public class OperatorController {
+
     private final UserService userService;
 
     @Autowired
-    public ReaderController(UserService userService) {
+    public OperatorController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("{id}")
     public UserResponseDto find(@PathVariable Long id) {
-        return userService.getById(id, RoleTypes.READER.toString());
+        return userService.getById(id, RoleTypes.OPERATOR.toString());
     }
 
     @GetMapping
     public List<UserResponseDto> findAll() {
-        return userService.findAll(RoleTypes.READER.toString());
+        return userService.findAll(RoleTypes.OPERATOR.toString());
     }
 }

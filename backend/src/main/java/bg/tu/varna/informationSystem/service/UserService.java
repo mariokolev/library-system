@@ -102,6 +102,10 @@ public class UserService {
         return convertToResponseDto(findById(userId, roleName));
     }
 
+    public List<UserResponseDto> findAll(String roleName) {
+        return userRepository.findAllByRole(roleName).stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
+
     private UserResponseDto convertToResponseDto(User user) {
         UserResponseDto responseDto = modelMapper.map(user, UserResponseDto.class);
         Role role = roleService.findRoleById(user.getRoleId());

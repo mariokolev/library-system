@@ -1,5 +1,8 @@
 package bg.tu.varna.informationSystem.controller;
 
+import bg.tu.varna.informationSystem.annotations.ValidEnum;
+import bg.tu.varna.informationSystem.common.BookStatuses;
+import bg.tu.varna.informationSystem.common.Messages;
 import bg.tu.varna.informationSystem.dto.book.BookRequestDto;
 import bg.tu.varna.informationSystem.dto.book.BookResponseDto;
 import bg.tu.varna.informationSystem.dto.book.BookUpdateDto;
@@ -40,5 +43,10 @@ public class BookController {
     @GetMapping
     public List<BookResponseDto> findAll() {
         return bookService.findAll();
+    }
+
+    @GetMapping("status/{status}")
+    public List<BookResponseDto> findAllByStatus(@PathVariable String status) {
+        return bookService.findAllByStatus(status);
     }
 }

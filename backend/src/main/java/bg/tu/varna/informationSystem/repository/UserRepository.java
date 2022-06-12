@@ -31,4 +31,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "where u.id = :id and r.role_name = :role_name"
             , nativeQuery = true)
     Optional<User> findById(@Param("id") Long id, @Param("role_name") String roleName);
+
+    @Query(value = "select u.* from users u " +
+            "inner join roles r on u.role_id = r.id " +
+            "where r.role_name = :role_name", nativeQuery = true)
+    List<User> findAllByRole(@Param("role_name") String roleName);
 }

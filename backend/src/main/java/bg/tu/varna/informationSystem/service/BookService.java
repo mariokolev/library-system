@@ -1,11 +1,10 @@
 package bg.tu.varna.informationSystem.service;
 
+import bg.tu.varna.informationSystem.annotations.implementations.EnumValidator;
 import bg.tu.varna.informationSystem.common.BookStatuses;
 import bg.tu.varna.informationSystem.common.Messages;
 import bg.tu.varna.informationSystem.dto.book.BookRequestDto;
 import bg.tu.varna.informationSystem.dto.book.BookResponseDto;
-import bg.tu.varna.informationSystem.dto.book.BookUpdateDto;
-import bg.tu.varna.informationSystem.entity.Author;
 import bg.tu.varna.informationSystem.entity.Book;
 import bg.tu.varna.informationSystem.entity.Genre;
 import bg.tu.varna.informationSystem.entity.ReadingRoom;
@@ -13,11 +12,10 @@ import bg.tu.varna.informationSystem.exception.BadRequestException;
 import bg.tu.varna.informationSystem.repository.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.util.EnumUtils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,5 +87,15 @@ public class BookService {
 
     public List<BookResponseDto> findAll() {
         return bookRepository.findAll().stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
+
+    public List<BookResponseDto> findAllByStatus(String status) {
+        Boolean valid = Arrays.stream(BookStatuses.values()).anyMatch((b) -> b.toString().equals(status));
+
+        if (!valid) {
+            throw new BadRequestException(Messages.INVALID_BOOK_STATUS);
+        }
+
+        return bookRepository.findAllByStatus(status).stream().map(this::convertToResponseDto).collect(Collectors.toList());
     }
 }
