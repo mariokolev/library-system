@@ -16,4 +16,7 @@ public interface BorrowRepository extends JpaRepository<Borrow, Long> {
 
     @Query("from Borrow b where reader_id = :reader_id and date_returned is null")
     List<Borrow> findAllNotReturnedByReader(@Param("reader_id") Long id);
+
+    @Query("from Borrow b where operator_id = :operator_id")
+    List<Borrow> findAllByOperator(@Param("operator_id") Long id);
 }

@@ -122,4 +122,8 @@ public class BorrowService {
     public List<BorrowResponseDto> findAllNotReturnedByReader(Long id) {
         return borrowRepository.findAllNotReturnedByReader(id).stream().map(this::convertToResponseDto).collect(Collectors.toList());
     }
+
+    public List<BorrowResponseDto> findAllByOperator(Long id) {
+        return borrowRepository.findAllByOperator(id).stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
 }

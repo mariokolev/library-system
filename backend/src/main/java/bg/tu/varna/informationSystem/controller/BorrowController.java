@@ -26,7 +26,7 @@ public class BorrowController {
     }
 
     @PutMapping("{id}/return")
-    public BorrowReturnResponseDto update(@PathVariable Long id,@Valid @RequestBody BorrowReturnRequestDto borrowReturnRequestDto) {
+    public BorrowReturnResponseDto update(@PathVariable Long id, @Valid @RequestBody BorrowReturnRequestDto borrowReturnRequestDto) {
         return borrowService.update(id, borrowReturnRequestDto);
     }
 
@@ -43,5 +43,10 @@ public class BorrowController {
     @GetMapping("reader/{id}/not-returned")
     public List<BorrowResponseDto> findAllNotReturnedByReader(@PathVariable Long id) {
         return borrowService.findAllNotReturnedByReader(id);
+    }
+
+    @GetMapping("/operator/{id}")
+    public List<BorrowResponseDto> findAllByOperator(@PathVariable Long id) {
+        return borrowService.findAllByOperator(id);
     }
 }

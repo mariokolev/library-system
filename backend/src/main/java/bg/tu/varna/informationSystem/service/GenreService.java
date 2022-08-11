@@ -9,6 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class GenreService {
 
@@ -32,5 +35,9 @@ public class GenreService {
 
     private GenreDto convertToDto(Genre genre) {
         return modelMapper.map(genre, GenreDto.class);
+    }
+
+    public List<GenreDto> findAll() {
+        return genreRepository.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
     }
 }
