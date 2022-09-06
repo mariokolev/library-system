@@ -1,5 +1,6 @@
 package bg.tu.varna.informationSystem.service;
 
+import bg.tu.varna.informationSystem.common.RoleTypes;
 import bg.tu.varna.informationSystem.dto.LoginResponseDTO;
 import bg.tu.varna.informationSystem.entity.User;
 import bg.tu.varna.informationSystem.security.UserPrincipal;
@@ -43,7 +44,11 @@ public class TokenService {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
-        return new LoginResponseDTO(compactTokenString, permissions, roleName);
+        Long libraryId = null;
+        if (!roleName.equals(RoleTypes.ADMIN.toString())) {
+            libraryId = user.getLibraries().get(0).getId();
+        }
+        return new LoginResponseDTO(user.getId(), user.getUsername(), compactTokenString, permissions, roleName, libraryId);
     }
 
     /**

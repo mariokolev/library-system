@@ -12,14 +12,10 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "select "
-            + "p.permission_name "
-            + "from public.roles r "
-            + "inner join users u on u.role_id  = r.id "
-            + "left join roles rr on rr.id = r.inherit_role_id "
-            + "inner join roles_permissions rp ON r.id = rp.role_id or rr.id = rp.role_id "
-            + "inner join permissions p on rp.permission_id = p.id "
-            + "where u.username = :username ", nativeQuery = true)
+    @Query(value = "select permissions.permission_name  from roles_permissions "
+            + " join permissions on roles_permissions.permission_id  = permissions.id "
+            + " join roles on roles_permissions.role_id = roles.id "
+            + " join users on roles.id = users.role_id where users.username = :username ", nativeQuery = true)
     List<String> getUserPermissions(@Param("username") String username);
 
     Optional<User> findByUsername(String username);

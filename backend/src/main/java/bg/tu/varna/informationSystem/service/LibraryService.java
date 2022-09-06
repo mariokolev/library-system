@@ -41,4 +41,8 @@ public class LibraryService {
     private LibraryResponseDto convertToResponseDto(Library library) {
         return modelMapper.map(library, LibraryResponseDto.class);
     }
+
+    public List<LibraryResponseDto> findAll() {
+        return libraryRepository.findAll().stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
 }

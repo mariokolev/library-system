@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -40,6 +41,15 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime dateModified;
 
+    @ManyToMany(cascade = {
+            CascadeType.ALL
+    },fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "users_libraries",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "library_id") }
+    )
+    private List<Library> libraries;
     public Long getId() {
         return id;
     }
@@ -110,5 +120,13 @@ public class User {
 
     public void setDateModified(LocalDateTime dateModified) {
         this.dateModified = dateModified;
+    }
+
+    public List<Library> getLibraries() {
+        return libraries;
+    }
+
+    public void setLibraries(List<Library> libraries) {
+        this.libraries = libraries;
     }
 }

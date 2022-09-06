@@ -1,15 +1,8 @@
-package bg.tu.varna.informationSystem.entity;
+package bg.tu.varna.frontend.network.model;
 
-import javax.persistence.*;
+public class LibraryDto {
 
-@Entity
-@Table(name = "authors")
-public class Author {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name")
     private String name;
 
     public Long getId() {
@@ -26,5 +19,10 @@ public class Author {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }
