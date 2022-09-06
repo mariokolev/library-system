@@ -6,9 +6,13 @@
         android:layout_marginTop="100dp"
         android:title="@string/menuUsers" />
     <item
-        android:id="@+id/friends"
+        android:id="@+id/books_operator"
         android:layout_marginTop="100dp"
-        android:title="@string/menuFriends" />
+        android:title="@string/menuOperatorBooks" />
+    <item
+        android:id="@+id/books_reader"
+        android:layout_marginTop="100dp"
+        android:title="@string/menuReaderBooks" />
     <item
         android:id="@+id/findConnections"
         android:layout_marginTop="100dp"

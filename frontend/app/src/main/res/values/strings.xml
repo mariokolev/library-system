@@ -2,7 +2,8 @@
     <string name="app_name">frontend</string>
     <string name="username">потребителско име</string>
     <string name="menuUsers">потребители</string>
-    <string name="menuFriends">приятели</string>
+    <string name="menuOperatorBooks">книги</string>
+    <string name="menuReaderBooks">книги</string>
     <string name="menuFind">търси</string>
     <string name="menuLogout">Излез</string>
     <string name="textPassword">парола</string>

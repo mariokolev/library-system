@@ -24,8 +24,8 @@ public class UserActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        btnAddUser = findViewById(R.id.btnAddUser);
-        recyclerView = findViewById(R.id.userRecyclerView);
+        btnAddUser = findViewById(R.id.btnAddBook);
+        recyclerView = findViewById(R.id.bookRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         adapter = new ListUserAdapter();

@@ -10,6 +10,8 @@ public class BookResponseDto {
     private Long readingRoomId;
     private String status;
 
+    private String dateAdded;
+
     public Long getId() {
         return id;
     }
@@ -56,5 +58,13 @@ public class BookResponseDto {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
     }
 }

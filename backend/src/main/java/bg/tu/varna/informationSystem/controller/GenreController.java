@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/genres")
-//@PreAuthorize("hasAnyAuthority('add','view')")
 public class GenreController {
 
     private final GenreService genreService;

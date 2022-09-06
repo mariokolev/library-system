@@ -43,6 +43,14 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
 
+        if (!permissions.contains(Permissions.MANAGE_BOOKS)) {
+            setItemVisibility(menu.findItem(R.id.books_operator), false);
+        }
+
+        if (!AuthenticationUtils.getRole(getApplicationContext()).equals(RoleType.READER.toString().toLowerCase())) {
+            setItemVisibility(menu.findItem(R.id.books_reader), false);
+        }
+
         return true;
     }
 
@@ -52,8 +60,12 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.users:
                 openActivity(UserActivity.class);
                 return true;
-            case R.id.friends:
-                Toast.makeText(this, "Friends are selected", Toast.LENGTH_SHORT).show();
+            case R.id.books_operator:
+                openActivity(BookOperatorActivity.class);
+                //                Toast.makeText(this, "Books are selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.books_reader:
+                Toast.makeText(this, "Books reader are selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.findConnections:
                 Toast.makeText(this, "Find connections are selected", Toast.LENGTH_SHORT).show();

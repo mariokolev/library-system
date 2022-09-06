@@ -22,10 +22,10 @@
             android:id="@+id/addUsername"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Потребителско име"
-            android:textSize="24dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/addFirstName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,10 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginBottom="12dp"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Име"
-            android:textSize="24dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/addLastName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -50,10 +50,10 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Фамилия"
-            android:textSize="24dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/spinnerLibraries"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
@@ -77,10 +77,10 @@
             android:layout_marginBottom="76dp"
             app:layout_constraintBottom_toTopOf="@+id/btnDialogAddUser"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerLibraries"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/btnDialogAddUser"
@@ -90,10 +90,10 @@
             android:text="Добави"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerLibraries"
-            app:layout_constraintVertical_bias="0.029" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/addPassword"

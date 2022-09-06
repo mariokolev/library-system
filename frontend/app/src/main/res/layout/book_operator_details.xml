@@ -7,8 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingLeft="5dp"
-        android:paddingTop="15dp"
         android:id="@+id/linearLayout"
         android:layout_width="365dp"
         android:layout_height="392dp"
@@ -21,9 +19,9 @@
         app:layout_constraintVertical_bias="0.395">
 
         <TextView
-            android:id="@+id/userDetailsUserId"
+            android:id="@+id/bookDetailsBookId"
             android:layout_width="186dp"
-            android:layout_height="35dp"
+            android:layout_height="29dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="textStart"
@@ -33,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/userDetailsUsername"
+            android:id="@+id/bookDetailsTitle"
             android:layout_width="186dp"
             android:layout_height="29dp"
             android:layout_marginTop="4dp"
@@ -42,10 +40,35 @@
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userDetailsUserId" />
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsBookId" />
 
         <TextView
-            android:id="@+id/userDetailsFirstName"
+            android:id="@+id/bookDetailsAuthor"
+            android:layout_width="186dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="textStart"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsTitle" />
+
+        <TextView
+            android:id="@+id/bookDetailsGenre"
+            android:layout_width="186dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textStart"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toEndOf="@+id/textViewAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsAuthor" />
+
+        <TextView
+            android:id="@+id/bookDetailsReadingRoomId"
             android:layout_width="186dp"
             android:layout_height="29dp"
             android:layout_marginTop="4dp"
@@ -54,119 +77,121 @@
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userDetailsUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsGenre" />
 
         <TextView
-            android:id="@+id/userDetailsLastName"
+            android:id="@+id/bookDetailsDateAdded"
             android:layout_width="186dp"
             android:layout_height="29dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textViewLastName"
-            app:layout_constraintTop_toBottomOf="@+id/userDetailsFirstName" />
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsReadingRoomId" />
 
         <TextView
-            android:id="@+id/userDetailsRoleName"
+            android:id="@+id/bookDetailsStatus"
             android:layout_width="186dp"
             android:layout_height="29dp"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="136dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userDetailsLastName" />
-
-        <TextView
-            android:id="@+id/userDetailsDateAdded"
-            android:layout_width="186dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:textAlignment="textStart"
-            android:textSize="16dp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textViewDateAdded"
-            app:layout_constraintTop_toBottomOf="@+id/userDetailsRoleName" />
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsDateAdded"
+            app:layout_constraintVertical_bias="0.666" />
 
         <TextView
             android:id="@+id/textViewid"
             android:layout_width="142dp"
-            android:layout_height="wrap_content"
+            android:layout_height="29dp"
             android:layout_marginTop="12dp"
-            android:text="Номер на потребител(ID):"
+            android:text="Номер на книга(ID):"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/userDetailsUserId"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsBookId"
             app:layout_constraintHorizontal_bias="0.285"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewUsername"
+            android:id="@+id/textViewTitle"
             android:layout_width="142dp"
             android:layout_height="29dp"
-            android:layout_marginTop="8dp"
-            android:text="Потребителско име:"
+            android:layout_marginTop="4dp"
+            android:text="Заглавие:"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/userDetailsUsername"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsTitle"
+            app:layout_constraintHorizontal_bias="0.32"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewid" />
 
         <TextView
-            android:id="@+id/textViewFirstName"
+            android:id="@+id/textViewAuthor"
             android:layout_width="142dp"
             android:layout_height="29dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:text="Име:"
+            android:layout_marginTop="8dp"
+            android:text="Автор:"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/userDetailsFirstName"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/textViewGenre"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsAuthor"
+            app:layout_constraintHorizontal_bias="0.38"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textViewLastName"
+            android:id="@+id/textViewGenre"
             android:layout_width="142dp"
             android:layout_height="29dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:text="Фамилия:"
+            android:layout_marginTop="76dp"
+            android:text="Жанр:"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsGenre"
+            app:layout_constraintHorizontal_bias="0.38"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewFirstName" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewid" />
 
         <TextView
-            android:id="@+id/textViewRoleName"
+            android:id="@+id/textViewReadingRoomId"
             android:layout_width="142dp"
             android:layout_height="29dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginStart="4dp"
-            android:text="Роля:"
+            android:text="Номер на читалня:"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/userDetailsRoleName"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsReadingRoomId"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLastName" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewGenre" />
 
         <TextView
             android:id="@+id/textViewDateAdded"
             android:layout_width="142dp"
             android:layout_height="29dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="Дата на добавяне:"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsDateAdded"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRoleName" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewReadingRoomId" />
+
+        <TextView
+            android:id="@+id/textViewStatus"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:text="Статус:"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsStatus"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDateAdded" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

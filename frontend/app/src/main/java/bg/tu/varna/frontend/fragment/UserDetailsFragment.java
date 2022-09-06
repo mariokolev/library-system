@@ -1,7 +1,6 @@
 package bg.tu.varna.frontend.fragment;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +27,14 @@ public class UserDetailsFragment extends DialogFragment {
             TextView firstName = view.findViewById(R.id.userDetailsFirstName);
             TextView lastName = view.findViewById(R.id.userDetailsLastName);
             TextView roleName = view.findViewById(R.id.userDetailsRoleName);
+            TextView dateAdded = view.findViewById(R.id.userDetailsDateAdded);
 
             userId.setText(String.valueOf(user.getId()));
             username.setText(user.getUsername());
             firstName.setText(user.getFirstName());
             lastName.setText(user.getLastName());
             roleName.setText(user.getRoleName());
+            dateAdded.setText(user.getDateAdded());
         }
 
         super.onViewCreated(view, savedInstanceState);

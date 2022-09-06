@@ -9,6 +9,7 @@ public class UserDto implements Parcelable {
     private String firstName;
     private String lastName;
     private String roleName;
+    private String dateAdded;
 
     public UserDto() {
 
@@ -54,6 +55,14 @@ public class UserDto implements Parcelable {
         this.roleName = roleName;
     }
 
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
     protected UserDto(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
@@ -64,6 +73,7 @@ public class UserDto implements Parcelable {
         firstName = in.readString();
         lastName = in.readString();
         roleName = in.readString();
+        dateAdded = in.readString();
     }
 
     public static final Creator<UserDto> CREATOR = new Creator<UserDto>() {
@@ -90,5 +100,6 @@ public class UserDto implements Parcelable {
         parcel.writeString(firstName);
         parcel.writeString(lastName);
         parcel.writeString(roleName);
+        parcel.writeString(dateAdded);
     }
 }
