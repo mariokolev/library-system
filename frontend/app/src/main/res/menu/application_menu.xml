@@ -14,9 +14,9 @@
         android:layout_marginTop="100dp"
         android:title="@string/menuReaderBooks" />
     <item
-        android:id="@+id/findConnections"
+        android:id="@+id/borrows"
         android:layout_marginTop="100dp"
-        android:title="@string/menuFind" />
+        android:title="@string/menuBorrows" />
     <item
         android:id="@+id/logout"
         android:layout_marginTop="100dp"

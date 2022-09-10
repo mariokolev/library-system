@@ -4,7 +4,7 @@
     <string name="menuUsers">потребители</string>
     <string name="menuOperatorBooks">книги</string>
     <string name="menuReaderBooks">книги</string>
-    <string name="menuFind">търси</string>
+    <string name="menuBorrows">Заети книги</string>
     <string name="menuLogout">Излез</string>
     <string name="textPassword">парола</string>
     <string name="btnLogin">Влизане</string>

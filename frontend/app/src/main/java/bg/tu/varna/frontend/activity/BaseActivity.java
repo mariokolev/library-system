@@ -67,8 +67,8 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.books_reader:
                 Toast.makeText(this, "Books reader are selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.findConnections:
-                Toast.makeText(this, "Find connections are selected", Toast.LENGTH_SHORT).show();
+            case R.id.borrows:
+                openActivity(BorrowedBooksActivity.class);
                 return true;
             case R.id.logout:
                 AuthenticationUtils.unsetUser(getApplicationContext());

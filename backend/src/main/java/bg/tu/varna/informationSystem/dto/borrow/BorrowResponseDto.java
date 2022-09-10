@@ -6,11 +6,8 @@ import bg.tu.varna.informationSystem.dto.users.UserResponseDto;
 
 public class BorrowResponseDto {
     private Long id;
-//    private Long bookId;
     private BookResponseDto book;
-//    private Long readerId;
     private UserResponseDto reader;
-//    private Long operatorId;
     private UserResponseDto operator;
     private String dateAdded;
     private String dateDueReturn;
@@ -22,30 +19,6 @@ public class BorrowResponseDto {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public Long getBookId() {
-//        return bookId;
-//    }
-//
-//    public void setBookId(Long bookId) {
-//        this.bookId = bookId;
-//    }
-
-//    public Long getReaderId() {
-//        return readerId;
-//    }
-//
-//    public void setReaderId(Long readerId) {
-//        this.readerId = readerId;
-//    }
-//
-//    public Long getOperatorId() {
-//        return operatorId;
-//    }
-//
-//    public void setOperatorId(Long operatorId) {
-//        this.operatorId = operatorId;
-//    }
 
     public String getDateAdded() {
         return dateAdded;

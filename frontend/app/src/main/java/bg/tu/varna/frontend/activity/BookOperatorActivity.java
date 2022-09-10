@@ -15,7 +15,7 @@ import bg.tu.varna.frontend.fragment.AddUserFragment;
 import bg.tu.varna.frontend.view_model.ListOperatorBookViewModel;
 import bg.tu.varna.frontend.view_model.ListUserViewModel;
 
-public class BookOperatorActivity extends BaseActivity{
+public class BookOperatorActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private Button btnAddBook;
