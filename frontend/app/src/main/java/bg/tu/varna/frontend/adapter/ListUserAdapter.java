@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import bg.tu.varna.frontend.R;
 import bg.tu.varna.frontend.activity.UserActivity;
@@ -47,6 +48,7 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.UserHo
 
         linearLayout.setOnClickListener(view -> {
             UserDetailsFragment userDetailsFragment = new UserDetailsFragment();
+            userDetailsFragment.setListUserAdapter(this);
             Bundle bundle = new Bundle();
             bundle.putParcelable("user", user);
             userDetailsFragment.setArguments(bundle);
@@ -64,9 +66,20 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.UserHo
         notifyDataSetChanged();
     }
 
+
     public void addUser(UserDto userDto) {
         users.add(userDto);
         notifyDataSetChanged();
+    }
+
+    public void setUser(UserDto userDto) {
+        for (int index = 0; index <= users.size(); index++) {
+            if (users.get(index).getId().equals(userDto.getId()) ) {
+                users.set(index, userDto);
+                notifyItemChanged(index);
+                return;
+            }
+        }
     }
 
     public Context getContext() {

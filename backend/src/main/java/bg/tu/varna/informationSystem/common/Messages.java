@@ -16,4 +16,6 @@ public class Messages {
     public static final String INVALID_BOOK_STATUS = "Invalid book status";
     public static final String GENRE_NOT_FOUND = "Genre is not found.";
     public static final String BORROW_NOT_FOUND = "Borrow with id: %s not found";
+
+    public static final String BOOK_STATUS_ERROR = "Book status cannot be changed to '%s' when current status is '%s'";
 }

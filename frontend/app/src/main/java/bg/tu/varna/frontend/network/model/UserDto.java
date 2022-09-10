@@ -10,6 +10,7 @@ public class UserDto implements Parcelable {
     private String lastName;
     private String roleName;
     private String dateAdded;
+    private Boolean isActive;
 
     public UserDto() {
 
@@ -61,6 +62,14 @@ public class UserDto implements Parcelable {
 
     public void setDateAdded(String dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     protected UserDto(Parcel in) {

@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/userItemLinearLayout"
-        android:layout_width="404dp"
-        android:layout_height="46dp"
+        android:layout_width="411dp"
+        android:layout_height="120dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="2dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,11 +19,23 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/bookItemTitle"
+            android:text="Статус" />
+
+        <TextView
             android:id="@+id/bookItemBookId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
             android:text="bookId"
             android:textColor="#000"
             android:textSize="16dp" />
@@ -33,8 +44,11 @@
             android:id="@+id/bookItemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/bookItemBookId"
             android:text="title"
             android:textColor="#000"
             android:textSize="16dp" />
@@ -43,12 +57,69 @@
             android:id="@+id/bookItemStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/bookItemTitle"
             android:rotationX="4"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
             android:text="status"
             android:textColor="#000"
             android:textSize="16dp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:text="ID" />
+
+        <Button
+            android:id="@+id/btnArchive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookItemBookId"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/primary"
+            android:text="Архивирай"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnWriteOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookItemBookId"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/btnArchive"
+            android:backgroundTint="@color/danger"
+            android:text="Бракувай" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookItemBookId"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/btnWriteOff"
+            android:backgroundTint="@color/success"
+            android:text="Отдай" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="9dp"
+            android:layout_toEndOf="@+id/bookItemBookId"
+            android:text="Заглавие" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

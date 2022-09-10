@@ -107,7 +107,7 @@ public class UserService {
     }
 
     public List<UserResponseDto> findAll() {
-        return userRepository.findAll().stream().map(this::convertToResponseDto).collect(Collectors.toList());
+        return userRepository.findAll(UserPrincipalUtils.getPrincipalFromContext().getId()).stream().map(this::convertToResponseDto).collect(Collectors.toList());
     }
 
     private UserResponseDto convertToResponseDto(User user) {

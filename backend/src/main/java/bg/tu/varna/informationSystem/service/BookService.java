@@ -1,6 +1,5 @@
 package bg.tu.varna.informationSystem.service;
 
-import bg.tu.varna.informationSystem.annotations.implementations.EnumValidator;
 import bg.tu.varna.informationSystem.common.BookStatuses;
 import bg.tu.varna.informationSystem.common.Messages;
 import bg.tu.varna.informationSystem.dto.book.BookRequestDto;
@@ -13,7 +12,6 @@ import bg.tu.varna.informationSystem.repository.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.util.EnumUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +49,16 @@ public class BookService {
 
         if (status.equals(book.getStatus())) {
             throw new BadRequestException(Messages.BOOK_STATUS_ALREADY_SET, book.getStatus());
+        }
+
+        if (status.equals(BookStatuses.BORROWED.toString()) && !book.getStatus().equals(BookStatuses.AVAILABLE.toString())) {
+            throw new BadRequestException(Messages.BOOK_STATUS_ERROR, status, book.getStatus());
+        }
+
+        if (
+                (status.equals(BookStatuses.ARCHIVED.toString()) || status.equals(BookStatuses.WRITE_OFF.toString()))
+                        && (book.getStatus().equals(BookStatuses.BORROWED.toString()) || book.getStatus().equals(BookStatuses.WRITE_OFF.toString()))) {
+            throw new BadRequestException(Messages.BOOK_STATUS_ERROR, status, book.getStatus());
         }
 
         book.setStatus(status);
