@@ -26,6 +26,7 @@ public class BorrowedBooksActivity extends BaseActivity {
         recyclerView.setHasFixedSize(true);
         adapter = new ListBorrowAdapter();
         adapter.setContext(getApplicationContext());
+        adapter.setBorrowedBooksActivity(this);
         recyclerView.setAdapter(adapter);
         initViewModel();
         listBorrowViewModel.fetchAll(getApplicationContext());

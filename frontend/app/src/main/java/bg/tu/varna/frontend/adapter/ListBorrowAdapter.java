@@ -1,6 +1,7 @@
 package bg.tu.varna.frontend.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bg.tu.varna.frontend.R;
+import bg.tu.varna.frontend.activity.BorrowedBooksActivity;
+import bg.tu.varna.frontend.fragment.BorrowDetailsFragment;
 import bg.tu.varna.frontend.network.model.BorrowDto;
 
 public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.BorrowHolder> {
 
     private List<BorrowDto> borrows = new ArrayList<>();
     private Context context;
+
+    public BorrowedBooksActivity getBorrowedBooksActivity() {
+        return borrowedBooksActivity;
+    }
+
+    public void setBorrowedBooksActivity(BorrowedBooksActivity borrowedBooksActivity) {
+        this.borrowedBooksActivity = borrowedBooksActivity;
+    }
+
+    public RelativeLayout getRelativeLayout() {
+        return relativeLayout;
+    }
+
+    public void setRelativeLayout(RelativeLayout relativeLayout) {
+        this.relativeLayout = relativeLayout;
+    }
+
+    private BorrowedBooksActivity borrowedBooksActivity;
     private RelativeLayout relativeLayout;
 
     @NonNull
@@ -44,6 +65,14 @@ public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.B
             public void onClick(View view) {
                 System.out.println("book is returned");
             }
+        });
+
+        relativeLayout.setOnClickListener(view -> {
+            BorrowDetailsFragment borrowDetailsFragment = new BorrowDetailsFragment();
+            Bundle bundle= new Bundle();
+            bundle.putParcelable("borrow", borrowDto);
+            borrowDetailsFragment.setArguments(bundle);
+            borrowDetailsFragment.show(borrowedBooksActivity.getSupportFragmentManager(), "borrow_details");
         });
     }
 
