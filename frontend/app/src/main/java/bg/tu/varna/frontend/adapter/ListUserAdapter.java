@@ -19,8 +19,14 @@ import java.util.Objects;
 
 import bg.tu.varna.frontend.R;
 import bg.tu.varna.frontend.activity.UserActivity;
+import bg.tu.varna.frontend.config.RetrofitConfig;
 import bg.tu.varna.frontend.fragment.UserDetailsFragment;
+import bg.tu.varna.frontend.network.model.BookDto;
+import bg.tu.varna.frontend.network.model.BorrowDto;
+import bg.tu.varna.frontend.network.model.BorrowRequestDto;
 import bg.tu.varna.frontend.network.model.UserDto;
+import bg.tu.varna.frontend.repository.BorrowRepository;
+import retrofit2.Retrofit;
 
 public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.UserHolder> {
 

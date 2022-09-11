@@ -110,6 +110,14 @@ public class UserService {
         return userRepository.findAll(UserPrincipalUtils.getPrincipalFromContext().getId()).stream().map(this::convertToResponseDto).collect(Collectors.toList());
     }
 
+    public List<UserResponseDto> findAll(Boolean isActive) {
+        return userRepository.findAll(isActive).stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
+
+    public List<UserResponseDto> findAll(String roleName, Boolean isActive) {
+        return userRepository.findAll(roleName, isActive).stream().map(this::convertToResponseDto).collect(Collectors.toList());
+    }
+
     private UserResponseDto convertToResponseDto(User user) {
         UserResponseDto responseDto = modelMapper.map(user, UserResponseDto.class);
         Role role = roleService.findRoleById(user.getRoleId());

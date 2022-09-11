@@ -19,6 +19,10 @@ public interface BookRepository {
     @Headers({"Accept: application/json"})
     Call<List<BookDto>> fetchAll(@Header("Authorization") String token);
 
+    @GET("api/v1/books/status/{status}")
+    @Headers({"Accept: application/json"})
+    Call<List<BookDto>> fetchAll(@Header("Authorization") String token, @Path("status") String status);
+
     @POST("/api/v1/books")
     @Headers({"Accept: application/json"})
     Call<BookDto> save(@Header("Authorization") String token, @Body BookRequestDto bookRequestDto);

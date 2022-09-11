@@ -28,6 +28,10 @@ public interface UserRepository {
     @Headers({"Accept: application/json"})
     Call<List<UserDto>> fetchAll(@Header("Authorization") String token);
 
+    @GET("/api/v1/users/isActive/{isActive}")
+    @Headers({"Accept: application/json"})
+    Call<List<UserDto>> fetchAll(@Header("Authorization") String token, @Path("isActive") Boolean isActive);
+
     @POST("/api/v1/users")
     @Headers({"Accept: application/json"})
     Call<UserDto> save(@Header("Authorization") String token, @Body UserRequestDto userRequestDto);

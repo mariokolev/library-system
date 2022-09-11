@@ -60,4 +60,34 @@ public class ListUserViewModel extends ViewModel {
             }
         });
     }
+
+    public void fetchAll(Context context, Boolean isActive) {
+        Retrofit retrofit = RetrofitConfig.getInstance();
+        UserRepository userRepository = retrofit.create(UserRepository.class);
+        Call<List<UserDto>> userDtoCall = userRepository.fetchAll(
+                StringConstants.BEARER + AuthenticationUtils.getToken(context), true);
+
+        userDtoCall.enqueue(new Callback<List<UserDto>>() {
+            @Override
+            public void onResponse(Call<List<UserDto>> call, Response<List<UserDto>> response) {
+                if (!response.isSuccessful()) {
+                    ErrorMessage errorMessage = ErrorUtils.parseError(response);
+                    Toast.makeText(context, errorMessage.getMessage(), Toast.LENGTH_SHORT).show();
+                    usersData.postValue(null);
+                    return;
+                }
+
+                usersData.postValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<UserDto>> call, Throwable t) {
+                try {
+                    throw t;
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

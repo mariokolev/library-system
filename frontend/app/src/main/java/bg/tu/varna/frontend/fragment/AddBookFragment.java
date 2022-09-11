@@ -72,7 +72,7 @@ public class AddBookFragment extends DialogFragment {
              Long genreId = ((GenreDto) genreSpinner.getSelectedItem()).getId();
              Long readingRoomId = ((ReadingRoomDto) this.readingRoomSpinner.getSelectedItem()).getId();
 
-            createBook(title.getText().toString(), author.getText().toString(), genreId, readingRoomId);
+             createBook(title.getText().toString(), author.getText().toString(), genreId, readingRoomId);
         });
     }
 

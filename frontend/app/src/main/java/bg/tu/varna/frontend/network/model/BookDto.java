@@ -143,4 +143,9 @@ public class BookDto implements Parcelable {
         parcel.writeString(dateAdded);
         parcel.writeString(condition);
     }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " заглавие:'" + title ;
+    }
 }

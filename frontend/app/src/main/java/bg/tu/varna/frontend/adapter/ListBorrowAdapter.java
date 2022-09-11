@@ -122,6 +122,11 @@ public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.B
         }
     }
 
+    public void addBorrow(BorrowDto borrowDto) {
+        borrows.add(borrowDto);
+        notifyDataSetChanged();
+    }
+
     class BorrowHolder extends RecyclerView.ViewHolder {
         private final TextView borrowId;
         private final TextView bookTitle;

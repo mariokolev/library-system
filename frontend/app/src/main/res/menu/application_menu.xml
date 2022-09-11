@@ -10,10 +10,6 @@
         android:layout_marginTop="100dp"
         android:title="@string/menuOperatorBooks" />
     <item
-        android:id="@+id/books_reader"
-        android:layout_marginTop="100dp"
-        android:title="@string/menuReaderBooks" />
-    <item
         android:id="@+id/borrows"
         android:layout_marginTop="100dp"
         android:title="@string/menuBorrows" />

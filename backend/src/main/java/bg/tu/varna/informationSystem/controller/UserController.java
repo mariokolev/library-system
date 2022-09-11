@@ -53,4 +53,14 @@ public class UserController {
 
         return userService.findAll(RoleTypes.READER.toString());
     }
+
+    @GetMapping("/isActive/{isActive}")
+    public List<UserResponseDto> findAll(@PathVariable("isActive") Boolean isActive) {
+        UserPrincipal loggedUser = UserPrincipalUtils.getPrincipalFromContext();
+        if (loggedUser.getRoleName().equals(RoleTypes.ADMIN.toString())) {
+            return userService.findAll(isActive);
+        }
+
+        return userService.findAll(RoleTypes.READER.toString(), isActive);
+    }
 }

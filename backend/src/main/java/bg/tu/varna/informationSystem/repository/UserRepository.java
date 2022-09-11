@@ -34,4 +34,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByRole(@Param("role_name") String roleName);
     @Query(value = "SELECT u FROM User u WHERE u.id <> :id")
     List<User> findAll(@Param("id") Long id);
+
+    @Query(value = "SELECT u FROM User u WHERE u.isActive = :isActive")
+    List<User> findAll(@Param("isActive") Boolean isActive);
+
+    @Query(value = "select u.* from users u " +
+            "inner join roles r on u.role_id = r.id " +
+            "where r.role_name = :role_name and u.active = :isActive", nativeQuery = true)
+    List<User> findAll(@Param("role_name") String roleName, @Param("isActive") Boolean isActive);
 }

@@ -47,10 +47,6 @@ public class BaseActivity extends AppCompatActivity {
             setItemVisibility(menu.findItem(R.id.books_operator), false);
         }
 
-        if (!AuthenticationUtils.getRole(getApplicationContext()).equals(RoleType.READER.toString().toLowerCase())) {
-            setItemVisibility(menu.findItem(R.id.books_reader), false);
-        }
-
         return true;
     }
 
@@ -62,10 +58,6 @@ public class BaseActivity extends AppCompatActivity {
                 return true;
             case R.id.books_operator:
                 openActivity(BookOperatorActivity.class);
-                //                Toast.makeText(this, "Books are selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.books_reader:
-                Toast.makeText(this, "Books reader are selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.borrows:
                 openActivity(BorrowedBooksActivity.class);

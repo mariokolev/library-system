@@ -3,6 +3,8 @@ package bg.tu.varna.frontend.network.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 public class UserDto implements Parcelable {
     private Long id;
     private String username;
@@ -110,5 +112,11 @@ public class UserDto implements Parcelable {
         parcel.writeString(lastName);
         parcel.writeString(roleName);
         parcel.writeString(dateAdded);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "id: " + String.valueOf(getId()) + " username: " + getUsername();
     }
 }

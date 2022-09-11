@@ -62,4 +62,36 @@ public class ListOperatorBookViewModel extends ViewModel {
             }
         });
     }
+
+    public void fetchAll(Context context, String status) {
+        Retrofit retrofit = RetrofitConfig.getInstance();
+        BookRepository bookRepository = retrofit.create(BookRepository.class);
+        Call<List<BookDto>> bookDtoCall = bookRepository.fetchAll(
+                StringConstants.BEARER + AuthenticationUtils.getToken(context),
+                status
+        );
+
+        bookDtoCall.enqueue(new Callback<List<BookDto>>() {
+            @Override
+            public void onResponse(Call<List<BookDto>> call, Response<List<BookDto>> response) {
+                if (!response.isSuccessful()) {
+                    ErrorMessage errorMessage = ErrorUtils.parseError(response);
+                    Toast.makeText(context, errorMessage.getMessage(), Toast.LENGTH_SHORT).show();
+                    booksData.postValue(null);
+                    return;
+                }
+
+                booksData.postValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<BookDto>> call, Throwable t) {
+                try {
+                    throw t;
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

@@ -74,7 +74,7 @@ public class BorrowService {
     public BorrowReturnResponseDto update(Long id, BorrowReturnRequestDto borrowReturnRequestDto) {
         Borrow borrow = findById(id);
         Book book = bookService.findById(borrowReturnRequestDto.getBookId());
-        System.out.println(book);
+
         if (!book.getStatus().equals(BookStatuses.BORROWED.toString())
                 || (borrow.getDateReturned() != null && borrow.getDateReturned().toString().equals(borrowReturnRequestDto.getDateReturned()))
         ) {

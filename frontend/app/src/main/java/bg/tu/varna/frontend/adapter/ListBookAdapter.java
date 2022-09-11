@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +23,7 @@ import bg.tu.varna.frontend.fragment.BookDetailsFragment;
 import bg.tu.varna.frontend.model.ErrorMessage;
 import bg.tu.varna.frontend.network.model.BookDto;
 import bg.tu.varna.frontend.network.model.BookUpdateDto;
-import bg.tu.varna.frontend.network.model.GenreDto;
-import bg.tu.varna.frontend.network.model.UserDto;
 import bg.tu.varna.frontend.repository.BookRepository;
-import bg.tu.varna.frontend.repository.GenreRepository;
 import bg.tu.varna.frontend.utils.AuthenticationUtils;
 import bg.tu.varna.frontend.utils.ErrorUtils;
 import bg.tu.varna.frontend.utils.StringConstants;
@@ -162,6 +158,7 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookHo
         private final TextView status;
         private final Button btnArchive;
         private final Button btnWriteOff;
+        private final Button btnAddBorrow;
 
         public BookHolder(@NonNull View itemView) {
             super(itemView);
@@ -170,6 +167,7 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookHo
             status = itemView.findViewById(R.id.bookItemStatus);
             btnArchive = itemView.findViewById(R.id.btnArchive);
             btnWriteOff = itemView.findViewById(R.id.btnWriteOff);
+            btnAddBorrow = itemView.findViewById(R.id.btnAddBorrow);
             linearLayout = itemView.findViewById(R.id.userItemLinearLayout);
         }
     }
