@@ -12,6 +12,8 @@ public class BookResponseDto {
 
     private String dateAdded;
 
+    private String condition;
+
     public Long getId() {
         return id;
     }
@@ -66,5 +68,13 @@ public class BookResponseDto {
 
     public void setDateAdded(String dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

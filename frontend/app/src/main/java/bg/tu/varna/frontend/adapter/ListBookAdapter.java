@@ -102,7 +102,6 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookHo
                 }
 
                 setBook(response.body());
-                System.out.println(response.body().getStatus());
             }
 
             @Override

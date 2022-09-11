@@ -1,24 +1,17 @@
-package bg.tu.varna.informationSystem.dto.borrow;
+package bg.tu.varna.frontend.network.model;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-public class BorrowReturnRequestDto {
-
-    @NotNull
+public class BorrowReturnDto {
     private Long bookId;
-
-    @NotEmpty
     private String dateReturned;
-
     private String condition;
 
-    public String getDateReturned() {
-        return dateReturned;
+    public BorrowReturnDto() {
     }
 
-    public void setDateReturned(String dateReturned) {
+    public BorrowReturnDto(Long bookId, String dateReturned, String condition) {
+        this.bookId = bookId;
         this.dateReturned = dateReturned;
+        this.condition = condition;
     }
 
     public Long getBookId() {
@@ -27,6 +20,14 @@ public class BorrowReturnRequestDto {
 
     public void setBookId(Long bookId) {
         this.bookId = bookId;
+    }
+
+    public String getDateReturned() {
+        return dateReturned;
+    }
+
+    public void setDateReturned(String dateReturned) {
+        this.dateReturned = dateReturned;
     }
 
     public String getCondition() {

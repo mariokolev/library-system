@@ -44,6 +44,15 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public BookResponseDto update(Long id, String status, String condition) {
+        Book book = findById(id);
+
+        book.setStatus(status);
+        book.setCondition(condition);
+        book = bookRepository.save(book);
+        return convertToResponseDto(book);
+    }
+
     public BookResponseDto update(Long id, String status) {
         Book book = findById(id);
 

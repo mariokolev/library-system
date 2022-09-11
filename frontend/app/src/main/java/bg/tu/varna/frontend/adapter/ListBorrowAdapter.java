@@ -18,7 +18,12 @@ import java.util.List;
 import bg.tu.varna.frontend.R;
 import bg.tu.varna.frontend.activity.BorrowedBooksActivity;
 import bg.tu.varna.frontend.fragment.BorrowDetailsFragment;
+import bg.tu.varna.frontend.fragment.ReturnBookFragment;
 import bg.tu.varna.frontend.network.model.BorrowDto;
+import bg.tu.varna.frontend.network.model.BorrowReturnResponseDto;
+import bg.tu.varna.frontend.utils.AuthenticationUtils;
+import bg.tu.varna.frontend.utils.Permissions;
+import bg.tu.varna.frontend.utils.common.RoleType;
 
 public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.BorrowHolder> {
 
@@ -60,16 +65,22 @@ public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.B
         holder.reader.setText(borrowDto.getReader().getUsername());
         holder.status.setText(borrowDto.getDateReturn() == null ? "Не" : "Да");
 
-        holder.btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("book is returned");
-            }
-        });
+        if (!AuthenticationUtils.getPermissions(context).contains(Permissions.MANAGE_BORROWS) || borrowDto.getDateReturn() != null) {
+            holder.btnReturn.setVisibility(View.INVISIBLE);
+        } else {
+            holder.btnReturn.setOnClickListener(view -> {
+                ReturnBookFragment returnBookFragment = new ReturnBookFragment();
+                returnBookFragment.setBorrowAdapter(this);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("borrow", borrowDto);
+                returnBookFragment.setArguments(bundle);
+                returnBookFragment.show(borrowedBooksActivity.getSupportFragmentManager(), "return_book");
+            });
+        }
 
         relativeLayout.setOnClickListener(view -> {
             BorrowDetailsFragment borrowDetailsFragment = new BorrowDetailsFragment();
-            Bundle bundle= new Bundle();
+            Bundle bundle = new Bundle();
             bundle.putParcelable("borrow", borrowDto);
             borrowDetailsFragment.setArguments(bundle);
             borrowDetailsFragment.show(borrowedBooksActivity.getSupportFragmentManager(), "borrow_details");
@@ -96,6 +107,19 @@ public class ListBorrowAdapter  extends RecyclerView.Adapter<ListBorrowAdapter.B
     public void setBorrows(List<BorrowDto> borrows) {
         this.borrows = borrows;
         notifyDataSetChanged();
+    }
+
+    public void setBorrow(Long id, BorrowReturnResponseDto borrowReturn) {
+        for (int index = 0; index <= borrows.size(); index++) {
+            if (borrows.get(index).getId().equals(id)) {
+                BorrowDto borrow = borrows.get(index);
+                borrow.setDateReturn(borrowReturn.getDateReturned());
+                borrow.getBook().setCondition(borrowReturn.getCondition());
+                borrows.set(index, borrow);
+                notifyItemChanged(index);
+                return;
+            }
+        }
     }
 
     class BorrowHolder extends RecyclerView.ViewHolder {

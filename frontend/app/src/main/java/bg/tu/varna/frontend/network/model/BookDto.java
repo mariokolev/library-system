@@ -11,8 +11,9 @@ public class BookDto implements Parcelable {
     private String status;
     private Long readingRoomId;
     private String dateAdded;
+    private String condition;
 
-    public BookDto(Long id, String title, GenreDto genre, String author, String status, Long readingRoomId, String dateAdded) {
+    public BookDto(Long id, String title, GenreDto genre, String author, String status, Long readingRoomId, String dateAdded, String condition) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -20,6 +21,7 @@ public class BookDto implements Parcelable {
         this.status = status;
         this.readingRoomId = readingRoomId;
         this.dateAdded = dateAdded;
+        this.condition = condition;
     }
 
     protected BookDto(Parcel in) {
@@ -37,6 +39,7 @@ public class BookDto implements Parcelable {
             readingRoomId = in.readLong();
         }
         dateAdded = in.readString();
+        condition = in.readString();
     }
 
     public static final Creator<BookDto> CREATOR = new Creator<BookDto>() {
@@ -107,6 +110,14 @@ public class BookDto implements Parcelable {
         this.dateAdded = dateAdded;
     }
 
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -130,5 +141,6 @@ public class BookDto implements Parcelable {
             parcel.writeLong(readingRoomId);
         }
         parcel.writeString(dateAdded);
+        parcel.writeString(condition);
     }
 }

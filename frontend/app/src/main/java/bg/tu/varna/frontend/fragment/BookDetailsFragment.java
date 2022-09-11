@@ -28,7 +28,7 @@ public class BookDetailsFragment extends DialogFragment {
             TextView readingRoomId = view.findViewById(R.id.bookDetailsReadingRoomId);
             TextView dateAdded = view.findViewById(R.id.bookDetailsDateAdded);
             TextView status = view.findViewById(R.id.bookDetailsStatus);
-
+            TextView condition = view.findViewById(R.id.bookDetailsCondition);
 
             bookId.setText(String.valueOf(book.getId()));
             title.setText(book.getTitle());
@@ -37,6 +37,7 @@ public class BookDetailsFragment extends DialogFragment {
             readingRoomId.setText(String.valueOf(book.getReadingRoomId()));
             dateAdded.setText(book.getDateAdded());
             status.setText(book.getStatus());
+            condition.setText(book.getCondition());
         }
 
         super.onViewCreated(view, savedInstanceState);

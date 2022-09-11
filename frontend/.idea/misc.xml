@@ -21,10 +21,11 @@
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/add_user.xml" value="0.18802083333333333" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/book_item.xml" value="0.5" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/book_item2.xml" value="0.36666666666666664" />
-        <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/book_operator_details.xml" value="0.5" />
+        <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/book_operator_details.xml" value="0.4" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/book_operator_details_2.xml" value="0.14791666666666667" />
-        <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/borrow_details.xml" value="0.4" />
+        <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/borrow_details.xml" value="0.3231441048034934" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/borrow_item.xml" value="0.6" />
+        <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/return_book.xml" value="0.49242424242424243" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/user_details.xml" value="0.33" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/user_details_2.xml" value="0.36666666666666664" />
         <entry key="..\:/projects/full-stack/library-system/frontend/app/src/main/res/layout/user_item.xml" value="0.18802083333333333" />

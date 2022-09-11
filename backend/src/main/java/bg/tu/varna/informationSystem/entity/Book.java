@@ -33,6 +33,9 @@ public class Book {
     @CreationTimestamp
     private LocalDateTime dateAdded;
 
+    @Column(name = "book_condition")
+    private String condition;
+
     public Long getId() {
         return id;
     }
@@ -87,5 +90,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

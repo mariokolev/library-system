@@ -3,6 +3,7 @@ package bg.tu.varna.informationSystem.service;
 import bg.tu.varna.informationSystem.common.BookStatuses;
 import bg.tu.varna.informationSystem.common.DateTimeParser;
 import bg.tu.varna.informationSystem.common.Messages;
+import bg.tu.varna.informationSystem.common.RoleTypes;
 import bg.tu.varna.informationSystem.dto.book.BookResponseDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowRequestDto;
 import bg.tu.varna.informationSystem.dto.borrow.BorrowResponseDto;
@@ -44,7 +45,15 @@ public class BorrowService {
     }
 
     public List<BorrowResponseDto> findAll() {
-        return borrowRepository.findAll().stream().map(this::convertToResponseDto).collect(Collectors.toList());
+        if (UserPrincipalUtils.getPrincipalFromContext().getRoleName().equals(RoleTypes.ADMIN.toString())) {
+            return borrowRepository.findAll().stream().map(this::convertToResponseDto).collect(Collectors.toList());
+        } else if (UserPrincipalUtils.getPrincipalFromContext().getRoleName().equals(RoleTypes.OPERATOR.toString())) {
+            return findAllByOperator(UserPrincipalUtils.getPrincipalFromContext().getId());
+        } else if (UserPrincipalUtils.getPrincipalFromContext().getRoleName().equals(RoleTypes.READER.toString())) {
+            return findAllByReader(UserPrincipalUtils.getPrincipalFromContext().getId());
+        }
+
+        return null;
     }
 
     @Transactional
@@ -65,7 +74,7 @@ public class BorrowService {
     public BorrowReturnResponseDto update(Long id, BorrowReturnRequestDto borrowReturnRequestDto) {
         Borrow borrow = findById(id);
         Book book = bookService.findById(borrowReturnRequestDto.getBookId());
-
+        System.out.println(book);
         if (!book.getStatus().equals(BookStatuses.BORROWED.toString())
                 || (borrow.getDateReturned() != null && borrow.getDateReturned().toString().equals(borrowReturnRequestDto.getDateReturned()))
         ) {
@@ -73,7 +82,7 @@ public class BorrowService {
         }
 
         borrow.setDateReturned(DateTimeParser.parse(borrowReturnRequestDto.getDateReturned()));
-        bookService.update(borrowReturnRequestDto.getBookId(), BookStatuses.AVAILABLE.toString());
+        bookService.update(borrowReturnRequestDto.getBookId(), BookStatuses.AVAILABLE.toString(), borrowReturnRequestDto.getCondition());
 
         return convertToReturnResponseDto(borrowRepository.save(borrow));
     }
@@ -110,6 +119,7 @@ public class BorrowService {
     private BorrowReturnResponseDto convertToReturnResponseDto(Borrow borrow) {
         BorrowReturnResponseDto borrowReturnResponseDto = modelMapper.map(borrow, BorrowReturnResponseDto.class);
         borrowReturnResponseDto.setDateReturned(borrow.getDateReturned().toString());
+        borrowReturnResponseDto.setCondition(borrow.getBook().getCondition());
         borrowReturnResponseDto.setReturned(true);
 
         return borrowReturnResponseDto;

@@ -19,6 +19,18 @@
         app:layout_constraintVertical_bias="0.395">
 
         <TextView
+            android:id="@+id/textViewCondition"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:text="Състояние:"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bookDetailsStatus"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsStatus" />
+
+        <TextView
             android:id="@+id/bookDetailsBookId"
             android:layout_width="186dp"
             android:layout_height="29dp"
@@ -104,6 +116,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsDateAdded"
             app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/bookDetailsCondition"
+            android:layout_width="186dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textStart"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@+id/textViewCondition"
+            app:layout_constraintTop_toBottomOf="@+id/bookDetailsStatus" />
 
         <TextView
             android:id="@+id/textViewid"

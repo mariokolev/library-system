@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import org.w3c.dom.Text;
+
 import bg.tu.varna.frontend.R;
 import bg.tu.varna.frontend.network.model.BorrowDto;
 
@@ -30,7 +32,7 @@ public class BorrowDetailsFragment extends DialogFragment {
             TextView operatorUsername = view.findViewById(R.id.borrowDetailsOperatorNickname);
             TextView dateAdded = view.findViewById(R.id.borrowDetailsDateAdded);
             TextView dateReturned = view.findViewById(R.id.borrowDetailsDateReturned);
-
+            TextView condition = view.findViewById(R.id.borrowDetailsCondition);
 
             borrowId.setText(String.valueOf(borrow.getId()));
             bookId.setText(String.valueOf(borrow.getBook().getId()));
@@ -41,6 +43,7 @@ public class BorrowDetailsFragment extends DialogFragment {
             operatorUsername.setText(borrow.getOperator().getUsername());
             dateAdded.setText(borrow.getDateAdded());
             dateReturned.setText(borrow.getDateReturn());
+            condition.setText(borrow.getBook().getCondition());
         }
 
         super.onViewCreated(view, savedInstanceState);
