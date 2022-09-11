@@ -21,11 +21,12 @@
         <TextView
             android:id="@+id/borrowDetailsCondition"
             android:layout_width="186dp"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toEndOf="@+id/textViewCondition"
@@ -34,11 +35,12 @@
         <TextView
             android:id="@+id/borrowDetailsDateReturned"
             android:layout_width="186dp"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.238"
             app:layout_constraintStart_toEndOf="@+id/textViewDateReturned"
@@ -47,24 +49,26 @@
         <TextView
             android:id="@+id/borrowDetailsDateAdded"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minHeight="29dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toEndOf="@+id/textViewDateAdded"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsOperatorNickname" />
 
         <TextView
             android:id="@+id/borrowDetailsOperatorNickname"
             android:layout_width="186dp"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.238"
             app:layout_constraintStart_toEndOf="@+id/textViewOperatorNickname"
@@ -73,65 +77,70 @@
         <TextView
             android:id="@+id/borrowDetailsOperatorId"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minHeight="29dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toEndOf="@+id/textViewOperatorId"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsReaderNickname" />
 
         <TextView
             android:id="@+id/borrowDetailsReaderNickname"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:minHeight="29dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toEndOf="@+id/textViewReaderNickname"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsReaderid" />
 
         <TextView
             android:id="@+id/borrowDetailsTitle"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toEndOf="@+id/textViewTitle"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsBookId" />
 
         <TextView
             android:id="@+id/borrowDetailsReaderid"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toEndOf="@+id/textViewReaderid"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsTitle" />
 
         <TextView
             android:id="@+id/borrowDetailsBookId"
             android:layout_width="186dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toEndOf="@+id/textViewid"
             app:layout_constraintTop_toBottomOf="@+id/borrowDetailsId" />
 
@@ -144,61 +153,62 @@
             android:text="Състояние:"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDateReturned" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsDateReturned" />
 
         <TextView
             android:id="@+id/textViewOperatorNickname"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:text="Потребителско име на оператор"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewOperatorId" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsOperatorId" />
 
         <TextView
             android:id="@+id/textViewOperatorId"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:text="Номер на оператор(ID):"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewReaderNickname" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsReaderNickname" />
 
         <TextView
             android:id="@+id/textViewReaderNickname"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="20dp"
             android:text="Потребителско име на читател:"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewReaderid" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsReaderid" />
 
         <TextView
             android:id="@+id/textViewReaderid"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:text="Номер на читател(ID):"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsTitle" />
 
         <TextView
             android:id="@+id/borrowDetailsId"
             android:layout_width="186dp"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="textStart"
             android:textSize="16dp"
             android:textStyle="normal"
+            android:minHeight="29dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textViewBorrowId"
@@ -220,33 +230,33 @@
             android:layout_width="142dp"
             android:layout_height="29dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:text="Номер на книга(ID):"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBorrowId" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsId" />
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="142dp"
             android:layout_height="29dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="12dp"
             android:text="Заглавие:"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewid" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsBookId" />
 
         <TextView
             android:id="@+id/textViewDateAdded"
             android:layout_width="142dp"
             android:layout_height="29dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:text="Дата на добавяне:"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewOperatorNickname" />
+            app:layout_constraintTop_toBottomOf="@+id/borrowDetailsOperatorNickname" />
 
         <TextView
             android:id="@+id/textViewDateReturned"
